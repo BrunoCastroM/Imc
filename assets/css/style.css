@@ -67,8 +67,6 @@ form button:hover {
     background-color: var(--cor-primaria);
 }
 
-
-/* Para o exercício */
 .resultado {
     text-align: center;
     background: rgb(15, 201, 108);
