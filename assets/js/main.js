@@ -6,9 +6,10 @@ function meuEscopo() {
         evento.preventDefault()
         const peso = formulario.querySelector('.peso')
         const altura = formulario.querySelector('.altura')
-        const imc = peso.value / (altura.value * altura.value)
+        const pesoCorrigido = peso.value.replace(',', '.')
+        const alturaCorrigida = altura.value.replace(',', '.')
 
-        if (isNaN(imc)) {
+        if (isNaN(pesoCorrigido) || isNaN(alturaCorrigida)) {
             resultado.innerHTML = ''
             const p = document.createElement('p')
             p.classList.add('erro')
@@ -16,6 +17,8 @@ function meuEscopo() {
             resultado.appendChild(p)
 
         } else {
+            const imc = pesoCorrigido / (alturaCorrigida * alturaCorrigida)
+            
             if (imc <= 18.5) {
                 resultado.innerHTML = `<p> O seu imc é ${imc.toFixed(2)}, você está abaixo do peso`
             } else if (imc < 25) {
